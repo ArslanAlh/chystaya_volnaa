@@ -1,0 +1,73 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #fffce6, #fff6cc);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contact-container {
+    background-color: #fffaf0;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #f7e9b5;
+}
+
+h2 {
+    color: #8a6d00;
+    margin-bottom: 20px;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp {
+    background-color: #25D366;
+}
+
+.whatsapp:hover {
+    background-color: #1ebe5d;
+}
+
+.telegram {
+    background-color: #0088cc;
+}
+
+.telegram:hover {
+    background-color: #0077b3;
+}
+
+.back-btn {
+    background-color: #f1c40f;
+    margin-top: 20px;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.back-btn:hover {
+    background-color: #d4ac0d;
+}

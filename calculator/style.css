@@ -1,0 +1,110 @@
+/* Основные стили страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #fffce6, #fff6cc);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Секция калькулятора */
+.calculator {
+    background-color: #fffaf0;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 420px;
+    width: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid #f7e9b5;
+}
+
+.calculator-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #8a6d00;
+    margin-bottom: 10px;
+}
+
+.calculator-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #7a5900;
+}
+
+select,
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f0d98a;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fffdf4;
+    transition: border 0.2s ease;
+}
+
+select:focus,
+input[type="number"]:focus {
+    border-color: #f1c40f;
+    outline: none;
+}
+
+/* Кнопка */
+.btn {
+    background-color: #f1c40f;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: #d4ac0d;
+}
+
+/* Чекбокс */
+.calculator-item input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+/* Результат */
+.calculator-result {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #6c5700;
+    background-color: #fff7cc;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ffe680;
+}
+
+.back-btn {
+    background-color: #f39c12;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.back-btn:hover {
+    background-color: #e67e22;
+}
