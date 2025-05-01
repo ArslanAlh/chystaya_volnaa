@@ -6,173 +6,169 @@
     <title>Чистая Волна - Химчистка мебели в Каспийске</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стиль для кнопки */
+        .phone-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50; /* Зеленый фон */
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-       
-    
+        .phone-btn:hover {
+            background-color: #45a049; /* Цвет при наведении */
+        }
+
+        .phone-btn i {
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Волны в фоне -->
-    <div class="wave-container">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-        </svg>
-    </div>
+<!-- Волны в фоне -->
+<div class="wave-container">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+              opacity=".25" class="shape-fill"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+              opacity=".5" class="shape-fill"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+              class="shape-fill"></path>
+    </svg>
+</div>
 
-    <header>
-        <div class="logo">
-            <i class="fas fa-water"></i>
-            ЧИСТАЯ ВОЛНА
-        </div>
-        <div class="slogan">ХИМЧИСТКА МЯГКОЙ МЕБЕЛИ В КАСПИЙСКЕ</div>
-    </header>
-    
+<header>
+    <div class="logo">
+        <i class="fas fa-water"></i>
+        ЧИСТАЯ ВОЛНА
+    </div>
+    <div class="slogan">ХИМЧИСТКА МЯГКОЙ МЕБЕЛИ В КАСПИЙСКЕ</div>
     <nav>
         <ul>
             <li><a href="#services"><i class="fas fa-concierge-bell"></i> Наши услуги</a></li>
-            <li><a href="#prices"><i class="fas fa-tags"></i> Цены</a></li>
-            <li><a href="calculator.html"><i class="fas fa-calculator"></i> Калькулятор</a></li>
-            <li><a href="#portfolio"><i class="fas fa-images"></i> Наши работы</a></li>
-            <li><a href="#contact"><i class="fas fa-phone-alt"></i> Контакты</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <div class="highlight">
-            <div class="highlight-content">
-                <h2>Профессиональная химчистка мягкой мебели в Каспийске</h2>
-                <p><strong>Мы специализируемся исключительно на чистке мебели и домашнего текстиля:</strong></p>
-                <ul>
-                    <li><i class="fas fa-couch"></i> Диваны и кресла всех типов</li>
-                    <li><i class="fas fa-bed"></i> Матрасы и подушки</li>
-                    <li><i class="fas fa-rug"></i> Ковры и ковровые покрытия</li>
-                    <li><i class="fas fa-chair"></i> Стулья с мягкой обивкой</li>
-                    <li><i class="fas fa-tshirt"></i> Шторы и гардины</li>
-                    <li><i class="fas fa-car"></i> Автомобильные салоны</li>
-                </ul>
-                <p><strong><i class="fas fa-exclamation-circle"></i> Не занимаемся химчисткой одежды!</strong></p>
-                
-                <!-- Кнопки соцсетей -->
+            <li><a href="calculator/index.html"><i class="fas fa-calculator"></i> Калькулятор</a></li>
+            <li><a href="contacts/index.html"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+            <li>
                 <div class="social-buttons">
-                    <a href="https://t.me/chistayavolna_kasp" class="social-btn telegram-btn" target="_blank">
-                        <i class="fab fa-telegram"></i> Наш Telegram
+                    <a href="https://t.me/chistaya_volna05" class="social-btn telegram-btn" target="_blank">
+                        <i class="fab fa-telegram"></i>
                     </a>
                     <a href="https://wa.me/79882063522" class="social-btn whatsapp-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="highlight">
+        <div class="highlight-content">
+            <h2>Профессиональная химчистка мягкой мебели в Каспийске</h2>
+            <p><strong>Мы специализируемся исключительно на чистке мебели и домашнего текстиля:</strong></p>
+            <ul>
+                <li><i class="fas fa-couch"></i> Диваны и кресла всех типов</li>
+                <li><i class="fas fa-bed"></i> Матрасы и подушки</li>
+                <li><i class="fas fa-rug"></i> Ковры и ковровые покрытия</li>
+                <li><i class="fas fa-chair"></i> Стулья с мягкой обивкой</li>
+                <li><i class="fas fa-tshirt"></i> Шторы и гардины</li>
+                <li><i class="fas fa-car"></i> Автомобильные салоны</li>
+            </ul>
+            <p><strong><i class="fas fa-exclamation-circle"></i> Не занимаемся химчисткой одежды!</strong></p>
+
+            <!-- Кнопки соцсетей -->
+
+        </div>
+    </div>
+
+    <div class="portfolio-container">
+
+        <section id="portfolio" class="portfolio">
+            <h3><i class="fas fa-images"></i> Наши работы</h3>
+            <p>Примеры химчистки мебели и ковров в Каспийске</p>
+
+            <div class="portfolio-grid">
+                <!-- Пример 1 - Диван -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="https://example.com/divan-before.jpg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="https://example.com/divan-after.jpg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Угловой диван <span class="portfolio-badge">Диван</span></h3>
+                        <p>Полная химчистка с удалением пятен от кофе, вина и восстановлением цвета ткани.</p>
+                    </div>
+                </div>
+
+                <!-- Пример 3 - Пятна фломастера -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="https://example.com/flomaster-before.jpg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="https://example.com/flomaster-after.jpg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Пятна фломастера <span class="portfolio-badge">Сложные пятна</span></h3>
+                        <p>Удаление стойких пятен от фломастера с тканевой обивки дивана.</p>
+                    </div>
+                </div>
+
+                <!-- Пример 4 - Пятна кофе -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="https://example.com/coffee-before.jpg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="https://example.com/coffee-after.jpg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Пятна кофе <span class="portfolio-badge">Сложные пятна</span></h3>
+                        <p>Удаление застарелых пятен от кофе с кожаного кресла.</p>
+                    </div>
+                </div>
+
+                <!-- Пример 5 - Пятна крови -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="https://example.com/blood-before.jpg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="https://example.com/blood-after.jpg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Пятна крови <span class="portfolio-badge">Матрас</span></h3>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <!-- Новый контейнер для калькулятора и портфолио -->
-        <div class="calculator-portfolio-container">
- 
-            
-            <section id="portfolio" class="portfolio">
-                <h3><i class="fas fa-images"></i> Наши работы</h3>
-                <p>Примеры химчистки мебели и ковров в Каспийске</p>
-                
-                <div class="portfolio-grid">
-                    <!-- Пример 1 - Диван -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-comparison">
-                            <div class="before">
-                                <img src="file:///C:/Users/user/Downloads/WhatsApp%20Image%202025-05-01%20at%2000.30.45%20(1).jpeg" alt="Диван до чистки">
-                            </div>
-                            <div class="after">
-                                <img src="file:///C:/Users/user/Downloads/WhatsApp%20Image%202025-05-01%20at%2000.30.45.jpeg" alt="Диван после чистки">
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Угловой диван <span class="portfolio-badge">Диван</span></h3>
-                            <p>Полная химчистка с удалением пятен от кофе, вина и восстановлением цвета ткани.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Пример 2 - Ковер -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-comparison">
-                            <div class="before">
-                                <img src="https://example.com/kover-before.jpg" alt="Ковер до чистки">
-                            </div>
-                            <div class="after">
-                                <img src="https://example.com/kover-after.jpg" alt="Ковер после чистки">
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Персидский ковер <span class="portfolio-badge">Ковер</span></h3>
-                            <p>Глубокая чистка с восстановлением ворса и цвета натурального ковра.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Пример 3 - Пятна фломастера -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-comparison">
-                            <div class="before">
-                                <img src="file:///C:/Users/user/Downloads/WhatsApp%20Image%202025-05-01%20at%2023.16.59%20(1).jpeg" alt="Пятна фломастера до чистки">
-                            </div>
-                            <div class="after">
-                                <img src="file:///C:/Users/user/Downloads/WhatsApp%20Image%202025-05-01%20at%2023.16.59.jpeg" alt="Пятна фломастера после чистки">
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Пятна фломастера <span class="portfolio-badge">Сложные пятна</span></h3>
-                            <p>Удаление стойких пятен от фломастера с тканевой обивки дивана.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Пример 4 - Пятна кофе -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-comparison">
-                            <div class="before">
-                                <img src="file:///C:/Users/user/Downloads/WhatsApp%20Image%202025-05-01%20at%2023.16.56.jpeg" alt="Пятна кофе до чистки">
-                            </div>
-                            <div class="after">
-                                <img src="file:///C:/Users/user/Downloads/WhatsApp%20Image%202025-05-01%20at%2023.16.58%20(1).jpeg" alt="Пятна кофе после чистки">
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Пятна кофе <span class="portfolio-badge">Сложные пятна</span></h3>
-                            <p>Удаление застарелых пятен от кофе с кожаного кресла.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Пример 5 - Пятна крови -->
-                    <div class="portfolio-item">
-                        <div class="portfolio-comparison">
-                            <div class="before">
-                                <img src="https://example.com/blood-before.jpg" alt="Пятна крови до чистки">
-                            </div>
-                            <div class="after">
-                                <img src="https://example.com/blood-after.jpg" alt="Пятна крови после чистки">
-                            </div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Пятна крови <span class="portfolio-badge">Матрас</<script>
-   </script>
-<!-- Мини-игра Block Blast -->
-<div id="game-widget" style="position: fixed; bottom: 20px; right: 20px; width: 300px; height: 400px; background: white; border: 3px solid #FFD600; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.3); z-index: 999; display: none; overflow: hidden;">
-    <div style="background: #FFD600; padding: 10px; text-align: center; font-weight: bold; display: flex; justify-content: space-between;">
-        <span>Block Blast</span>
-        <button id="close-game" style="background: none; border: none; cursor: pointer;">✕</button>
-    </div>
-    <div id="game-container" style="width: 100%; height: 370px; position: relative; background: #111;">
-        <div id="player" style="position: absolute; width: 60px; height: 15px; background: #4CAF50; bottom: 20px; left: 120px; border-radius: 3px;"></div>
-        <div id="ball" class="ball" style="position: absolute; width: 12px; height: 12px; background: #f44336; border-radius: 50%; display: none;"></div>
-        <div id="game-score" style="position: absolute; top: 10px; right: 10px; color: white; font-size: 14px;">Score: 0</div>
-        <div id="game-start" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
-            <h3 style="margin-bottom: 20px;">Block Blast</h3>
-            <button onclick="startMiniGame()" style="padding: 8px 20px; background: #FF6D00; color: white; border: none; border-radius: 5px; cursor: pointer;">Играть</button>
-        </div>
+        </section>
     </div>
 </div>
 
-<!-- Кнопка запуска игры -->
-<div id="game-launcher" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #FF6D00; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 0 15px rgba(255,109,0,0.5); z-index: 998;">
-    🎮
-</div>
+<!-- Кнопка для звонка -->
+<a href="tel:+79882063522" class="phone-btn">
+    <i class="fas fa-phone-alt"></i>
+</a>
 
-<script src="script.js">
-
-</script>
+<script src="script.js"></script>
+</body>
+</html>
