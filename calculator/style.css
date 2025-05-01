@@ -1,7 +1,16 @@
+:root {
+    --primary: #2A3F54;
+    --secondary: #00BCD4;
+    --accent: #4DB6AC;
+    --light: #F5F7FA;
+    --dark: #2C3E50;
+    --white: #ffffff;
+}
+
 /* Основные стили страницы */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #fffce6, #fff6cc);
+    background: linear-gradient(to right, var(--white), var(--light));
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,14 +21,14 @@ body {
 
 /* Секция калькулятора */
 .calculator {
-    background-color: #fffaf0;
+    background-color: var(--light);
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     max-width: 420px;
     width: 100%;
     transition: all 0.3s ease;
-    border: 1px solid #f7e9b5;
+    border: 1px solid var(--accent);
 }
 
 .calculator-content {
@@ -31,7 +40,7 @@ body {
 h3 {
     text-align: center;
     font-size: 1.6rem;
-    color: #8a6d00;
+    color: var(--primary);
     margin-bottom: 10px;
 }
 
@@ -39,30 +48,30 @@ h3 {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #7a5900;
+    color: var(--primary);
 }
 
 select,
 input[type="number"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #f0d98a;
+    border: 1px solid var(--accent);
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #fffdf4;
+    background-color: var(--white);
     transition: border 0.2s ease;
 }
 
 select:focus,
 input[type="number"]:focus {
-    border-color: #f1c40f;
+    border-color: var(--secondary);
     outline: none;
 }
 
 /* Кнопка */
 .btn {
-    background-color: #f1c40f;
-    color: #fff;
+    background-color: var(--secondary);
+    color: var(--white);
     padding: 12px;
     border: none;
     border-radius: 8px;
@@ -76,7 +85,7 @@ input[type="number"]:focus {
 }
 
 .btn:hover {
-    background-color: #d4ac0d;
+    background-color: var(--accent);
 }
 
 /* Чекбокс */
@@ -90,15 +99,15 @@ input[type="number"]:focus {
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
-    color: #6c5700;
-    background-color: #fff7cc;
+    color: var(--primary);
+    background-color: var(--light);
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #ffe680;
+    border: 1px solid var(--accent);
 }
 
 .back-btn {
-    background-color: #f39c12;
+    background-color: var(--primary);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -106,5 +115,5 @@ input[type="number"]:focus {
 }
 
 .back-btn:hover {
-    background-color: #e67e22;
+    background-color: #0f161c;
 }

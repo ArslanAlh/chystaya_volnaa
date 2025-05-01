@@ -1,6 +1,15 @@
+:root {
+    --primary: #2A3F54;
+    --secondary: #00BCD4;
+    --accent: #4DB6AC;
+    --light: #F5F7FA;
+    --dark: #2C3E50;
+    --white: #ffffff;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #fffce6, #fff6cc);
+    background: #f5f7fa;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,18 +19,18 @@ body {
 }
 
 .contact-container {
-    background-color: #fffaf0;
+    background-color: var(--light);
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     max-width: 400px;
     width: 100%;
     text-align: center;
-    border: 1px solid #f7e9b5;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 h2 {
-    color: #8a6d00;
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
@@ -36,7 +45,7 @@ h2 {
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    color: white;
+    color: var(--white);
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
@@ -58,9 +67,9 @@ h2 {
 }
 
 .back-btn {
-    background-color: #f1c40f;
+    background-color: var(--secondary);
     margin-top: 20px;
-    color: white;
+    color: var(--white);
     padding: 12px;
     border-radius: 8px;
     display: inline-block;
@@ -69,5 +78,5 @@ h2 {
 }
 
 .back-btn:hover {
-    background-color: #d4ac0d;
+    background-color: #008ea1;
 }

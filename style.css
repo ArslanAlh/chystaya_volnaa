@@ -1,11 +1,12 @@
 :root {
-    --primary: #FFD600;
-    --secondary: #FF6D00;
-    --accent: #FFAB00;
-    --light: #FFF9C4;
-    --dark: #333;
-    --white: #fff;
+    --primary: #2A3F54;
+    --secondary: #00BCD4;
+    --accent: #4DB6AC;
+    --light: #F5F7FA;
+    --dark: #2C3E50;
+    --white: #ffffff;
 }
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,12 +19,14 @@ body {
     overflow-x: hidden;
 }
 
+#logo {
+    width: 64px;
+    animation: wave 2s ease infinite;
+}
+
 /* Волны в фоне */
 .wave-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     line-height: 0;
     z-index: -1;
@@ -42,7 +45,7 @@ body {
 
 header {
     background: var(--primary);
-    color: var(--dark);
+    color: var(--white);
     text-align: center;
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -67,6 +70,30 @@ header {
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(-15deg); }
     75% { transform: rotate(15deg); }
+}
+
+/* Стиль для кнопки */
+.phone-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Зеленый фон */
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.phone-btn:hover {
+    background-color: #45a049; /* Цвет при наведении */
+}
+
+.phone-btn i {
+    font-size: 24px;
 }
 
 .slogan {
@@ -115,6 +142,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: var(--primary);
+    color: var(--white);
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
