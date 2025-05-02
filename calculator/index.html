@@ -1,55 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo.png" type="image/png">
-    <title>Калькулятор стоимости химчистки</title>
+    <link rel="icon" href="../logo.png" type="image/png">
+    <title>Калькулятор химчистки</title>
 </head>
 <body>
     <section id="calculator" class="calculator">
         <div class="calculator-content">
-            <h3><i class="fas fa-calculator"></i> Калькулятор стоимости химчистки</h3>
+            <h3><i class="fas fa-calculator"></i> Калькулятор химчистки</h3>
             
-            <div class="calculator-item">
-                <label for="service-type"><i class="fas fa-list-ul"></i> Выберите услугу:</label>
-                <select id="service-type">
-                    <option value="">-- Выберите услугу --</option>
-                    <option value="2500">Диван 2-х местный</option>
-                    <option value="3500">Диван 3-х местный</option>
-                    <option value="4500">Диван 4-х местный</option>
-                    <option value="5000">Диван 5-х местный</option>
-                    <option value="4500">Угловой диван</option>
-                    <option value="1500">Кресло</option>
-                    <option value="250">Стул с обивкой</option>
-                    <option value="2000">Матрас (односторонняя чистка)</option>
-                    <option value="3500">Матрас (двусторонняя чистка)</option>
-                    <option value="250">Ковер до м²</option>
-
-                </select>
+            <!-- Список услуг с количеством -->
+            <div class="services-list">
+                <!-- Диваны -->
+                <div class="service-item">
+                    <label>Диван 2-местный — <strong>2500 руб.</strong></label>
+                    <div class="quantity-control">
+                        <button class="qty-minus" data-price="2500" data-name="Диван 2-местный">−</button>
+                        <input type="number" class="qty-input" value="0" min="0">
+                        <button class="qty-plus" data-price="2500" data-name="Диван 2-местный">+</button>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <label>Диван 3-местный — <strong>3500 руб.</strong></label>
+                    <div class="quantity-control">
+                        <button class="qty-minus" data-price="3500" data-name="Диван 3-местный">−</button>
+                        <input type="number" class="qty-input" value="0" min="0">
+                        <button class="qty-plus" data-price="3500" data-name="Диван 3-местный">+</button>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <label>Угловой диван — <strong>4500 руб.</strong></label>
+                    <div class="quantity-control">
+                        <button class="qty-minus" data-price="4500" data-name="Угловой диван">−</button>
+                        <input type="number" class="qty-input" value="0" min="0">
+                        <button class="qty-plus" data-price="4500" data-name="Угловой диван">+</button>
+                    </div>
+                </div>
+                
+                <!-- Кресла -->
+                <div class="service-item">
+                    <label>Кресло — <strong>1500 руб.</strong></label>
+                    <div class="quantity-control">
+                        <button class="qty-minus" data-price="1500" data-name="Кресло">−</button>
+                        <input type="number" class="qty-input" value="0" min="0">
+                        <button class="qty-plus" data-price="1500" data-name="Кресло">+</button>
+                    </div>
+                </div>
             </div>
             
-            <div class="calculator-item">
-                <label for="quantity"><i class="fas fa-sort-numeric-up"></i> Количество:</label>
-                <input type="number" id="quantity" min="1" value="1">
-            </div>
-            
-            <div class="calculator-item">
+            <!-- Чекбокс срочного заказа -->
+            <div class="calculator-item urgent-checkbox">
                 <label>
-                    <input type="checkbox" id="urgent"> 
-                    <i class="fas fa-bolt"></i> Срочный заказ (+20% к стоимости)
+                    <input type="checkbox" id="urgent">
+                    <i class="fas fa-bolt"></i> Срочный заказ (+20%)
                 </label>
             </div>
             
-            <button class="btn" onclick="calculatePrice()"><i class="fas fa-calculator"></i> Рассчитать стоимость</button>
-            
+            <!-- Итоговая сумма -->
             <div class="calculator-result" id="result">
-                <i class="fas fa-coins"></i> Итоговая стоимость: 0 руб.
+                <i class="fas fa-coins"></i> Итого: <span id="totalPrice">0</span> руб.
             </div>
-
-            <a href="../index.html" class="btn back-btn"><i class="fas fa-arrow-left"></i> Вернуться</a>
+            
+            <!-- Список выбранного -->
+            <div class="selected-items" id="selectedItems">
+                <p><em>Добавьте услуги</em></p>
+            </div>
+            
+            <a href="../index.html" class="btn back-btn"><i class="fas fa-arrow-left"></i> На главную</a>
         </div>
     </section>
     <script src="script.js"></script>
