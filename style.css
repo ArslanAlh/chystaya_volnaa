@@ -601,4 +601,141 @@ footer p {
         padding: 10px;
     }
 }
+/* ==================== */
+/* СЕКЦИЯ ОТЗЫВОВ - НОВЫЙ ДИЗАЙН */
+/* ==================== */
 
+.reviews-section {
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4a90e2, #5bc0de, #4a90e2);
+}
+
+.reviews-section h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.reviews-section h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #4a90e2;
+    border-radius: 3px;
+}
+
+.reviews-section p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-box {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 25px;
+    width: calc(25% - 25px);
+    min-width: 250px;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.review-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: #4a90e2;
+}
+
+.review-content {
+    min-height: 100px;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #555;
+    line-height: 1.6;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    font-size: 15px;
+}
+
+.review-author {
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: right;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.review-author i {
+    color: #4a90e2;
+    font-size: 14px;
+}
+
+/* Стили для редактируемых полей */
+.editable {
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.editable:focus {
+    border-color: #4a90e2;
+    background-color: white;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .review-box {
+        width: calc(50% - 25px);
+    }
+}
+
+@media (max-width: 600px) {
+    .review-box {
+        width: 100%;
+    }
+    
+    .reviews-section h3 {
+        font-size: 28px;
+    }
+    
+    .reviews-section p {
+        font-size: 16px;
+    }
+}
