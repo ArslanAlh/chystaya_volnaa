@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | Чистая Волна</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../logo.png" type="image/png">
+    <style>
+        /* Специфичные стили для страницы "О нас" */
+        .about-hero {
+            background: linear-gradient(rgba(42, 63, 84, 0.8), rgba(42, 63, 84, 0.8)), 
+                        url('../images/about-bg.jpg') center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .certificate-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .certificate-img {
+            height: 400px;
+            background: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .certificate-info {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .team-section {
+            background: #f9f9f9;
+            padding: 60px 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img id="logo" src="../logo.png">
+            ЧИСТАЯ ВОЛНА
+        </div>
+        <div class="slogan">ПРОФЕССИОНАЛЬНАЯ ХИМЧИСТКА В КАСПИЙСКЕ</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-info-circle"></i> О нас</a></li>
+                <li><a href="../calculator/index.html"><i class="fas fa-calculator"></i> Калькулятор</a></li>
+                <li><a href="../contacts/index.html"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="about-hero">
+        <h1><i class="fas fa-water"></i> О нашей компании</h1>
+        <p>Профессиональный подход к чистоте </p>
+    </div>
+
+    <div class="container">
+        <section class="about-section">
+            <div class="about-content">
+                <h2><i class="fas fa-medal"></i> Почему выбирают нас?</h2>
+                <p>Компания "Чистая Волна" предоставляет услуги профессиональной химчистки мебели, ковров и автомобильных салонов в Каспийске. Мы используем только сертифицированные европейские средства и современное оборудование.</p>
+                
+                <h3><i class="fas fa-check-circle"></i> Наши преимущества:</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Безопасные гипоаллергенные средства</li>
+                    <li><i class="fas fa-check"></i> Опытные мастера с профильным образованием</li>
+                    <li><i class="fas fa-check"></i> Гарантия на все виды работ</li>
+                    <li><i class="fas fa-check"></i> Выезд в день обращения</li>
+                    <li><i class="fas fa-check"></i> Скидки постоянным клиентам</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="certificates-section">
+            <h2><i class="fas fa-award"></i> Наш сертификат</h2>
+            <p>Подтверждение качества наших услуг</p>
+            
+            <div class="certificates-grid">
+                <!-- Сертификат 1 -->
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="../images/certificate1.jpg" alt="Сертификат качества">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Сертификат качества</h3>
+                        <p>Международный стандарт ISO 9001</p>
+                    </div>
+                </div>
+                
+
+    <a href="tel:+79882063522" class="phone-btn">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+
+    <script src="../script.js"></script>
+</body>
+</html>
