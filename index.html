@@ -53,7 +53,62 @@
         </div>
     </div>
 
-    <div class="portfolio-container">
+    <!-- Форма обратной связи -->
+       <!-- ▼ ВСТАВЬТЕ НОВУЮ ФОРМУ ЗДЕСЬ ▼ -->
+<section class="compact-feedback">
+    <div class="container">
+        <form class="horizontal-form" id="compactFeedback">
+            <!-- ...новое содержимое формы... -->
+        </form>
+    </div>
+</section>
+
+<!-- Существующий раздел портфолио -->
+<div class="portfolio-container"><!-- Красивая горизонтальная форма -->
+    <section class="elegant-feedback">
+        <div class="container">
+            <div class="form-header">
+                <h3><i class="fas fa-broom"></i> Закажите химчистку</h3>
+                <p>Оставьте заявку и получите скидку 10% на первый заказ</p>
+            </div>
+            
+            <form class="elegant-form" id="elegantFeedback">
+                <div class="form-grid">
+                    <!-- Поле имени -->
+                    <div class="form-group elegant">
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Поле телефона -->
+                    <div class="form-group elegant">
+                        <div class="input-icon">
+                            <i class="fas fa-phone-alt"></i>
+                            <input type="tel" placeholder="Телефон" required>
+                        </div>
+                    </div>
+
+                    
+                    <!-- Кнопка -->
+                    <button type="submit" class="btn elegant-btn">
+                        <i class="fas fa-paper-plane"></i> Вызвать мастера
+                    </button>
+                </div>
+                
+                <div class="form-footer">
+                    <label class="checkbox">
+                        <input type="checkbox" checked required>
+                        <span>Согласен с <a href="#">политикой конфиденциальности</a></span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+        
         <section id="portfolio" class="portfolio">
             <h3><i class="fas fa-images"></i> Наши работы</h3>
             <p>Примеры химчистки мебели и ковров в Каспийске</p>
