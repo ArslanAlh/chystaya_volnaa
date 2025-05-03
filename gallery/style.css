@@ -1,0 +1,250 @@
+/* Стили для кнопки "Смотреть больше работ" */
+.portfolio-more {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.more-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2c7be5;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(44, 123, 229, 0.3);
+}
+
+.more-btn:hover {
+    background-color: #1a68d1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 123, 229, 0.4);
+}
+
+.more-btn i {
+    margin-right: 8px;
+}
+
+/* Стили для галереи */
+.full-gallery {
+    padding: 40px 0;
+}
+
+.full-gallery h1 {
+    text-align: center;
+    color: #2c7be5;
+    margin-bottom: 15px;
+}
+
+.full-gallery p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.gallery-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-comparison {
+    display: flex;
+    position: relative;
+}
+
+.gallery-comparison .before,
+.gallery-comparison .after {
+    flex: 1;
+    position: relative;
+}
+
+.gallery-comparison img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.gallery-comparison .label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.gallery-description {
+    padding: 20px;
+}
+
+.gallery-description h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.gallery-description p {
+    text-align: left;
+    margin-bottom: 0;
+    color: #666;
+}
+
+.back-to-main {
+    text-align: center;
+    margin: 50px 0 30px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2c7be5;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #1a68d1;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-comparison {
+        flex-direction: column;
+    }
+}
+.filter-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(5px);
+}
+
+.filter-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    color: #555;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.filter-btn i {
+    margin-right: 10px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.filter-btn .btn-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2c7be5, #3a8df8);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 50px;
+}
+
+.filter-btn:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(44, 123, 229, 0.3);
+}
+
+.filter-btn:hover i {
+    transform: scale(1.1);
+}
+
+.filter-btn:hover .btn-hover-effect {
+    opacity: 1;
+}
+
+.filter-btn.active {
+    color: white;
+    background: linear-gradient(135deg, #2c7be5, #3a8df8);
+    box-shadow: 0 4px 12px rgba(44, 123, 229, 0.4);
+}
+
+.filter-btn.active i {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .filter-buttons {
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .filter-btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    .filter-btn i {
+        margin-right: 6px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-buttons {
+        gap: 6px;
+    }
+    
+    .filter-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+    
+    .filter-btn span {
+        display: none;
+    }
+    
+    .filter-btn i {
+        margin-right: 0;
+    }
+}

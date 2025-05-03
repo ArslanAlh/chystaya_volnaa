@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея работ - Чистая Волна</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../logo.png" type="image/png">
+    <style>
+        /* Основные стили для слайдера сравнения */
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .before-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+            transition: width 0.3s ease;
+        }
+        
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: white;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            cursor: ew-resize;
+        }
+        
+        .slider-handle:after {
+            content: "↔";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #2c7be5;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Стили для фильтров */
+        .filter-container {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .filter-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 50px;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .filter-btn i {
+            margin-right: 8px;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            background: #2c7be5;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(44, 123, 229, 0.3);
+        }
+        
+        .filter-btn:hover i {
+            transform: scale(1.1);
+        }
+        
+        .filter-btn.active {
+            background: #2c7be5;
+            color: white;
+            box-shadow: 0 4px 12px rgba(44, 123, 229, 0.4);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .filter-buttons {
+                gap: 8px;
+                padding: 12px;
+            }
+            
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .filter-btn span {
+                display: none;
+            }
+            
+            .filter-btn i {
+                margin-right: 0;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="gallery-header">
+        <div class="logo">
+            <img id="logo" src="../logo.png">
+            ЧИСТАЯ ВОЛНА
+        </div>
+        <div class="slogan">ГАЛЕРЕЯ НАШИХ РАБОТ</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="../about/index.html"><i class="fas fa-info-circle"></i> О нас</a></li>
+                <li><a href="../contacts/index.html"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="full-gallery">
+            <h1><i class="fas fa-couch"></i> Наши работы</h1>
+            <p class="subtitle">Реальные примеры химчистки в Каспийске</p>
+
+            <div class="filter-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Все работы</span>
+                    </button>
+                    <button class="filter-btn" data-filter="sofa">
+                        <i class="fas fa-couch"></i>
+                        <span>Диваны</span>
+                    </button>
+                    <button class="filter-btn" data-filter="carpet">
+                        <i class="fas fa-rug"></i>
+                        <span>Ковры</span>
+                    </button>
+                    <button class="filter-btn" data-filter="mattress">
+                        <i class="fas fa-bed"></i>
+                        <span>Матрасы</span>
+                    </button>
+                    <button class="filter-btn" data-filter="car">
+                        <i class="fas fa-car"></i>
+                        <span>Автосалоны</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Блок 1 -->
+                <div class="gallery-item" data-category="sofa">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/1-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/1-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Угловой диван</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Ленина</p>
+                        <p>Полная химчистка с удалением пятен от кофе и вина.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>15.05.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 2 -->
+                <div class="gallery-item" data-category="carpet">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/2-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/2-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Персидский ковёр</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Гагарина</p>
+                        <p>Реставрация ворса и удаление застарелых пятен.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>4 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>22.06.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 3 -->
+                <div class="gallery-item" data-category="mattress">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/3-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/3-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Ортопедический матрас</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Мира</p>
+                        <p>Удаление пятен крови и полная дезинфекция.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>2 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>10.07.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 4 -->
+                <div class="gallery-item" data-category="sofa">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/4-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/4-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Кожаный диван</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, пр. Петра I</p>
+                        <p>Восстановление кожи после длительного использования.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3.5 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>05.08.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 5 -->
+                <div class="gallery-item" data-category="car">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/car1-do.jpg" alt="До чистки">
+                        </div>
+                        <img src="../Images/car1-posle.jpg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Автосалон BMW</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Автозаводская</p>
+                        <p>Комплексная чистка салона премиум-класса.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5 часов работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>12.09.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 6 -->
+                <div class="gallery-item" data-category="sofa">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/5-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/5-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Диван-кровать</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Советская</p>
+                        <p>Удаление пятен от пищи и восстановление ткани.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>2.5 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>18.09.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 7 -->
+                <div class="gallery-item" data-category="carpet">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/6-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/6-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Ковролин</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Морская</p>
+                        <p>Глубокая чистка коврового покрытия в офисе.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>25.09.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 8 -->
+                <div class="gallery-item" data-category="mattress">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/7-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/7-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Детский матрас</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Школьная</p>
+                        <p>Гипоаллергенная чистка детского матраса.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>1.5 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>03.10.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 9 -->
+                <div class="gallery-item" data-category="sofa">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/8-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/8-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Диван в гостиницу</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Курортная</p>
+                        <p>Санация и чистка мебели после постояльцев.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>4 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>15.10.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 10 -->
+                <div class="gallery-item" data-category="car">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/car2-do.jpg" alt="До чистки">
+                        </div>
+                        <img src="../Images/car2-posle.jpg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Автокресла</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Транспортная</p>
+                        <p>Чистка тканевых автокресел после детей.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>2 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>22.10.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 11 -->
+                <div class="gallery-item" data-category="sofa">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/9-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/9-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Модульный диван</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Центральная</p>
+                        <p>Чистка всех модулей сложной конструкции.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5 часов работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>30.10.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 12 -->
+                <div class="gallery-item" data-category="carpet">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/10-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/10-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Ковёр в детской</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Детская</p>
+                        <p>Удаление пятен от красок и пластилина.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>2.5 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>05.11.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 13 -->
+                <div class="gallery-item" data-category="mattress">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/11-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/11-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Матрас с эффектом памяти</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Комфортная</p>
+                        <p>Чистка без повреждения специального покрытия.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>12.11.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 14 -->
+                <div class="gallery-item" data-category="sofa">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/12-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/12-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Диван в кафе</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Ресторанная</p>
+                        <p>Удаление пятен от соусов и напитков.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>4 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>20.11.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок 15 -->
+                <div class="gallery-item" data-category="carpet">
+                    <div class="comparison-slider">
+                        <div class="before-container">
+                            <img src="../Images/13-do.jpeg" alt="До чистки">
+                        </div>
+                        <img src="../Images/13-posle.jpeg" alt="После чистки">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="gallery-description">
+                        <h3>Ковер в гостиной</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Каспийск, ул. Домашняя</p>
+                        <p>Глубокая чистка и восстановление цвета.</p>
+                        <div class="work-details">
+                            <span class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3.5 часа работы</span>
+                            </span>
+                            <span class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>28.11.2023</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-to-main">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Вернуться на главную</span>
+                </a>
+            </div>
+        </section>
+    </div>
