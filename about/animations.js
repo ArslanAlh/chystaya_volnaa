@@ -61,3 +61,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Добавьте этот код в конец файла animations.js
+
+// Модальное окно для сертификата
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем элементы
+    const modal = document.getElementById('certificateModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close');
+    
+    // Находим все изображения сертификатов
+    const certImages = document.querySelectorAll('.certificate-img img');
+    
+    // Добавляем обработчик клика для каждого изображения
+    certImages.forEach(img => {
+      img.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = this.src;
+      });
+    });
+    
+    // Закрытие по клику на крестик
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    
+    // Закрытие по клику вне изображения
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Закрытие по ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+      }
+    });
+  });

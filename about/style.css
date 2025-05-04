@@ -171,3 +171,104 @@ body {
         padding: 15px;
     }
 }
+/* Сертификаты */
+.certificate-img img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.certificates-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.certificate-card {
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .certificate-img img {
+        max-width: 280px; /* Чуть меньше на мобильных */
+    }
+    
+    .certificate-card {
+        max-width: 100%; /* На всю ширину экрана */
+        margin: 0 15px; /* Отступы по бокам */
+    }
+    
+    .certificates-section {
+        padding: 40px 15px; /* Уменьшенные отступы */
+    }
+}
+
+@media (max-width: 480px) {
+    .certificate-img img {
+        max-width: 240px; /* Ещё меньше для очень маленьких экранов */
+    }
+}
+/* ... весь существующий CSS ... */
+
+@media (max-width: 480px) {
+    .certificate-img img {
+        max-width: 240px;
+    }
+}
+
+/* ↓↓↓ Добавляем новые стили для модального окна ЗДЕСЬ ↓↓↓ */
+
+/* Стили модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: auto;
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close:hover {
+    color: var(--accent);
+}
+
+/* Делаем карточку сертификата кликабельной */
+.certificate-img {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.certificate-img:hover {
+    transform: scale(1.03);
+}
