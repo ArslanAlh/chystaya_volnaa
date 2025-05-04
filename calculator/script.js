@@ -6,11 +6,10 @@ function updateSelectedList() {
     const selectedList = document.getElementById('selectedItems');
     let html = '';
     
-    // Проверяем, есть ли выбранные услуги
     const hasItems = Object.values(selectedServices).some(item => item.qty > 0);
     
     if (!hasItems) {
-        html = '<p><em>Добавьте услуги</em></p>';
+        html = '<p style="text-align: center; color: rgba(60, 60, 67, 0.3);">Добавьте услуги</p>';
     } else {
         html = '<ul>';
         for (const [name, item] of Object.entries(selectedServices)) {
@@ -18,7 +17,7 @@ function updateSelectedList() {
                 html += `
                     <li>
                         <span>${name} × ${item.qty}</span>
-                        <strong>${item.qty * item.price} руб.</strong>
+                        <strong>${(item.qty * item.price).toLocaleString()} ₽</strong>
                     </li>
                 `;
             }
@@ -30,7 +29,7 @@ function updateSelectedList() {
     calculateTotal();
 }
 
-// Функция расчета общей суммы
+// Функция расчета общей суммы (без GSAP)
 function calculateTotal() {
     let total = 0;
     
@@ -43,7 +42,16 @@ function calculateTotal() {
         total *= 1.2;
     }
     
-    document.getElementById('totalPrice').textContent = Math.round(total);
+    const totalElement = document.getElementById('totalPrice');
+    totalElement.textContent = Math.round(total).toLocaleString();
+    
+    // Простая анимация без GSAP
+    totalElement.style.transform = 'scale(1.1)';
+    totalElement.style.color = '#34c759';
+    setTimeout(() => {
+        totalElement.style.transform = 'scale(1)';
+        totalElement.style.color = 'white';
+    }, 300);
 }
 
 // Обработчики кнопок "+" и "-"
@@ -53,12 +61,14 @@ document.querySelectorAll('.qty-plus, .qty-minus').forEach(button => {
         const price = parseInt(this.getAttribute('data-price'));
         const name = this.getAttribute('data-name');
         
-        // Инициализируем услугу, если её ещё нет
+        // Простая анимация кнопки без GSAP
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => { this.style.transform = 'scale(1)'; }, 100);
+        
         if (!selectedServices[name]) {
             selectedServices[name] = { price: price, qty: 0 };
         }
         
-        // Изменяем количество
         if (this.classList.contains('qty-plus')) {
             input.value = ++selectedServices[name].qty;
         } else if (input.value > 0) {
@@ -69,7 +79,7 @@ document.querySelectorAll('.qty-plus, .qty-minus').forEach(button => {
     });
 });
 
-// Обработчик ручного ввода количества
+// Обработчик ручного ввода
 document.querySelectorAll('.qty-input').forEach(input => {
     input.addEventListener('change', function() {
         const price = this.parentElement.querySelector('.qty-plus').getAttribute('data-price');
@@ -86,7 +96,16 @@ document.querySelectorAll('.qty-input').forEach(input => {
 });
 
 // Обработчик срочного заказа
-document.getElementById('urgent').addEventListener('change', calculateTotal);
+document.getElementById('urgent').addEventListener('change', function() {
+    calculateTotal();
+    
+    // Простая анимация без GSAP
+    if (this.checked) {
+        this.parentElement.style.backgroundColor = 'rgba(255, 204, 0, 0.2)';
+    } else {
+        this.parentElement.style.backgroundColor = 'rgba(255, 204, 0, 0.1)';
+    }
+});
 
-// Инициализация при загрузке
+// Инициализация
 document.addEventListener('DOMContentLoaded', updateSelectedList);
