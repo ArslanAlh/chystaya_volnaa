@@ -48,13 +48,13 @@ header {
     color: var(--white);
     text-align: center;
     position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(241, 241, 241, 0.1);
 }
 
 .logo {
     font-size: 42px;
     font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,7 +297,7 @@ footer p {
 }
 
 .highlight {
-    background-color: #FFECB3;
+    background-color: #ffffff;
     padding: 25px;
     border-radius: 12px;
     margin: 30px 0;
@@ -796,7 +796,7 @@ footer p {
     padding: 25px;
     margin: 40px 0;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(229, 228, 228, 0.05);
     border-left: 4px solid var(--accent);
 }
 
@@ -914,4 +914,21 @@ footer p {
     .reviews-section p {
         font-size: 16px;
     }
+}
+.back-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #2c7be5;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin: 30px 0;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: #1a68d1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 123, 229, 0.3);
 }
