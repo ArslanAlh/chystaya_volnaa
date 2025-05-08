@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея работ | Чистая Волна</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили только для страницы галереи */
+        .gallery-page .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+            gap: 20px;
+        }
+        
+        .gallery-page .portfolio-item {
+            margin-bottom: 0; /* Убираем отступ снизу */
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-page .portfolio-grid {
+                grid-template-columns: 1fr; /* На мобильных - 1 колонка */
+            }
+        }
+    </style>
+</head>
+<body class="gallery-page">
+    <header>
+        <div class="logo">
+            <img id="logo" src="logo.png">
+            ЧИСТАЯ ВОЛНА
+        </div>
+        <div class="slogan">ГАЛЕРЕЯ НАШИХ РАБОТ</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="../about/index.html"><i class="fas fa-info-circle"></i> О нас</a></li>
+                <li><a href="../contacts/index.html"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="portfolio">
+            <h1><i class="fas fa-images"></i> Все наши работы</h1>
+            <p class="subtitle">10 примеров профессиональной химчистки</p>
+
+            <!-- Первый ряд -->
+            <div class="portfolio-grid">
+                <!-- Блок 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/1-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/1-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Угловой диван <span class="portfolio-badge">Диван</span></h3>
+                        <p>Полная химчистка с удалением пятен от кофе, вина и восстановлением цвета ткани.</p>
+                    </div>
+                </div>
+
+                <!-- Блок 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/2-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/2-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Пятна различного характера <span class="portfolio-badge">Сложные пятна</span></h3>
+                        <p>Удаление застарелых почвенных пятен.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Второй ряд -->
+            <div class="portfolio-grid">
+                <!-- Блок 3 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/3-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/3-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Пятна крови на ковре <span class="portfolio-badge">Ковер</span></h3>
+                        <p>Удаление застарелых пятен крови.</p>
+                    </div>
+                </div>
+
+                <!-- Блок 4 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/4-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/4-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Пятна фломастера <span class="portfolio-badge">Диван</span></h3>
+                        <p>Удаление стойких пятен от фломастера.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Третий ряд -->
+            <div class="portfolio-grid">
+                <!-- Блок 5 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/5-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/5-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Кожаный диван <span class="portfolio-badge">Кожа</span></h3>
+                        <p>Чистка и восстановление кожаного покрытия.</p>
+                    </div>
+                </div>
+
+                <!-- Блок 6 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/6-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/6-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Кресло с пятнами <span class="portfolio-badge">Кресло</span></h3>
+                        <p>Удаление сложных пятен и общая химчистка.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Четвертый ряд -->
+            <div class="portfolio-grid">
+                <!-- Блок 7 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/7-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/7-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Автомобильные сиденья <span class="portfolio-badge">Авто</span></h3>
+                        <p>Химчистка салона автомобиля.</p>
+                    </div>
+                </div>
+
+                <!-- Блок 8 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/8-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/8-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Ковер в гостиной <span class="portfolio-badge">Ковер</span></h3>
+                        <p>Глубокая чистка коврового покрытия.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пятый ряд -->
+            <div class="portfolio-grid">
+                <!-- Блок 9 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/9-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/9-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Офисные кресла <span class="portfolio-badge">Офис</span></h3>
+                        <p>Чистка офисной мебели.</p>
+                    </div>
+                </div>
+
+                <!-- Блок 10 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-comparison">
+                        <div class="before">
+                            <img src="Images/10-do.jpeg" alt="До чистки">
+                        </div>
+                        <div class="after">
+                            <img src="Images/10-posle.jpeg" alt="После чистки">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Диван с защитным покрытием <span class="portfolio-badge">Диван</span></h3>
+                        <p>Чистка с сохранением защитного слоя ткани.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="back-to-main">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Вернуться на главную</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
