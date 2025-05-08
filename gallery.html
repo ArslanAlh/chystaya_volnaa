@@ -15,12 +15,91 @@
         
         .gallery-page .portfolio-item {
             margin-bottom: 0; /* Убираем отступ снизу */
+            cursor: pointer; /* Курсор-указатель */
         }
         
         @media (max-width: 768px) {
             .gallery-page .portfolio-grid {
                 grid-template-columns: 1fr; /* На мобильных - 1 колонка */
             }
+        }
+        
+        /* Стили модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border: 3px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #ff6b6b;
+        }
+        
+        .switch-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0);
+            border: none;
+            color: #f7f6f6;
+            font-size: 24px;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        
+        .switch-btn:hover {
+            background: rgb(94, 72, 72);
+        }
+        
+        .prev-btn {
+            left: 30px;
+        }
+        
+        .next-btn {
+            right: 30px;
+        }
+        
+        .caption {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0);
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -43,7 +122,7 @@
     <div class="container">
         <section class="portfolio">
             <h1><i class="fas fa-images"></i> Все наши работы</h1>
-            <p class="subtitle">10 примеров профессиональной химчистки</p>
+            <p class="subtitle">10+ примеров профессиональной химчистки</p>
 
             <!-- Первый ряд -->
             <div class="portfolio-grid">
@@ -51,15 +130,15 @@
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/1-do.jpeg" alt="До чистки">
+                            <img src="Images/1-do.jpeg" alt="Угловой диван до чистки">
                         </div>
                         <div class="after">
-                            <img src="Images/1-posle.jpeg" alt="После чистки">
+                            <img src="Images/1-posle.jpeg" alt="Угловой диван после чистки">
                         </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Угловой диван <span class="portfolio-badge">Диван</span></h3>
-                        <p>Полная химчистка с удалением пятен от кофе, вина и восстановлением цвета ткани.</p>
+                        <p>Полная химчистка с удалением пятен от кофе, вина, масляных и восстановлением цвета ткани.</p>
                     </div>
                 </div>
 
@@ -67,34 +146,31 @@
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/2-do.jpeg" alt="До чистки">
+                            <img src="Images/2-do.jpeg" alt="Пятна до чистки">
                         </div>
                         <div class="after">
-                            <img src="Images/2-posle.jpeg" alt="После чистки">
+                            <img src="Images/2-posle.jpeg" alt="Пятна после чистки">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Пятна различного характера <span class="portfolio-badge">Сложные пятна</span></h3>
-                        <p>Удаление застарелых почвенных пятен.</p>
+                        <h3>Пятна различного происхождения <span class="portfolio-badge">Сложные пятна</span></h3>
+                        <p>Удаление застарелых пятен: почвенных, органических и бытовых.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Второй ряд -->
-            <div class="portfolio-grid">
                 <!-- Блок 3 -->
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/3-do.jpeg" alt="До чистки">
+                            <img src="Images/3-do.jpeg" alt="Пятна крови до чистки">
                         </div>
                         <div class="after">
-                            <img src="Images/3-posle.jpeg" alt="После чистки">
+                            <img src="Images/3-posle.jpeg" alt="Пятна крови после чистки">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Пятна крови на ковре <span class="portfolio-badge">Ковер</span></h3>
-                        <p>Удаление застарелых пятен крови.</p>
+                        <h3>Следы крови? Не проблема!<span class="portfolio-badge">Ковер</span></h3>
+                        <p>Гарантированное удаление любых кровяных пятен с ковров</p>
                     </div>
                 </div>
 
@@ -102,34 +178,31 @@
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/4-do.jpeg" alt="До чистки">
+                            <img src="Images/4-do.jpeg" alt="Пятна фломастера до">
                         </div>
                         <div class="after">
-                            <img src="Images/4-posle.jpeg" alt="После чистки">
+                            <img src="Images/4-posle.jpeg" alt="Пятна фломастера после">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Пятна фломастера <span class="portfolio-badge">Диван</span></h3>
-                        <p>Удаление стойких пятен от фломастера.</p>
+                        <h3>Удаление красителей фломастера <span class="portfolio-badge">Ковер</span></h3>
+                        <p>Профессиональная обработка пигментных пятен с ковров.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Третий ряд -->
-            <div class="portfolio-grid">
                 <!-- Блок 5 -->
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/5-do.jpeg" alt="До чистки">
+                            <img src="Images/5-do.jpeg" alt="Кожаный диван до">
                         </div>
                         <div class="after">
-                            <img src="Images/5-posle.jpeg" alt="После чистки">
+                            <img src="Images/5-posle.jpeg" alt="Кожаный диван после">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Кожаный диван <span class="portfolio-badge">Кожа</span></h3>
-                        <p>Чистка и восстановление кожаного покрытия.</p>
+                        <h3>Удаление трудноидентифицируемых пятен <span class="portfolio-badge">Диван</span></h3>
+                        <p>Профессиональная чистка любых типов загрязнений текстиля.</p>
                     </div>
                 </div>
 
@@ -137,34 +210,31 @@
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/6-do.jpeg" alt="До чистки">
+                            <img src="Images/6-do.jpeg" alt="Кресло до чистки">
                         </div>
                         <div class="after">
-                            <img src="Images/6-posle.jpeg" alt="После чистки">
+                            <img src="Images/6-posle.jpeg" alt="Кресло после чистки">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Кресло с пятнами <span class="portfolio-badge">Кресло</span></h3>
-                        <p>Удаление сложных пятен и общая химчистка.</p>
+                        <h3>Глубокая чистка углового дивана <span class="portfolio-badge">Угловой диван</span></h3>
+                        <p>Удаление застарелых пятен и обновление текстильного покрытия.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Четвертый ряд -->
-            <div class="portfolio-grid">
                 <!-- Блок 7 -->
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/7-do.jpeg" alt="До чистки">
+                            <img src="Images/7-do.jpeg" alt="Автосиденья до">
                         </div>
                         <div class="after">
-                            <img src="Images/7-posle.jpeg" alt="После чистки">
+                            <img src="Images/7-posle.jpeg" alt="Автосиденья после">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Автомобильные сиденья <span class="portfolio-badge">Авто</span></h3>
-                        <p>Химчистка салона автомобиля.</p>
+                        <h3>Выведение старых пятен крови (6 месяцев) <span class="portfolio-badge">Подушка</span></h3>
+                        <p>Глубокая чистка с полным удалением биологических следов .</p>
                     </div>
                 </div>
 
@@ -172,34 +242,31 @@
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/8-do.jpeg" alt="До чистки">
+                            <img src="Images/8-do.jpeg" alt="Ковер до чистки">
                         </div>
                         <div class="after">
-                            <img src="Images/8-posle.jpeg" alt="После чистки">
+                            <img src="Images/8-posle.jpeg" alt="Ковер после чистки">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Ковер в гостиной <span class="portfolio-badge">Ковер</span></h3>
-                        <p>Глубокая чистка коврового покрытия.</p>
+                        <h3>Чистка дивана от уличных загрязнений<span class="portfolio-badge">Диван</span></h3>
+                        <p>Комплексное удаление почвы, песка и других уличных загрязнений с полной обработкой механизма.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Пятый ряд -->
-            <div class="portfolio-grid">
                 <!-- Блок 9 -->
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/9-do.jpeg" alt="До чистки">
+                            <img src="Images/9-do.jpeg" alt="Офисные кресла до">
                         </div>
                         <div class="after">
-                            <img src="Images/9-posle.jpeg" alt="После чистки">
+                            <img src="Images/9-posle.jpeg" alt="Офисные кресла после">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Офисные кресла <span class="portfolio-badge">Офис</span></h3>
-                        <p>Чистка офисной мебели.</p>
+                        <h3>Чистка дивана от крови <span class="portfolio-badge">Диван</span></h3>
+                        <p>Быстрое и эффективное удаление свежих и старых пятен.</p>
                     </div>
                 </div>
 
@@ -207,19 +274,18 @@
                 <div class="portfolio-item">
                     <div class="portfolio-comparison">
                         <div class="before">
-                            <img src="Images/10-do.jpeg" alt="До чистки">
+                            <img src="Images/10-do.jpeg" alt="Диван с защитой до">
                         </div>
                         <div class="after">
-                            <img src="Images/10-posle.jpeg" alt="После чистки">
+                            <img src="Images/10-posle.jpeg" alt="Диван с защитой после">
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>Диван с защитным покрытием <span class="portfolio-badge">Диван</span></h3>
-                        <p>Чистка с сохранением защитного слоя ткани.</p>
+                        <h3>Пролили кофе на ковер? Решим проблему! <span class="portfolio-badge">Ковер</span></h3>
+                        <p>Эффективное удаление свежих и старых кофейных пятен.</p>
                     </div>
                 </div>
             </div>
-
         </section>
 
         <div class="back-to-main">
@@ -230,6 +296,76 @@
         </div>
     </div>
 
-    <script src="../script.js"></script>
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <button class="switch-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="switch-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-img" src="" alt="">
+            <div id="modalCaption" class="caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Модальное окно для сравнения "До/После"
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const caption = document.getElementById('modalCaption');
+        
+        // Текущие изображения и индекс
+        let currentImages = [];
+        let currentIndex = 0;
+
+        // Обработчик клика на изображения
+        document.querySelectorAll('.portfolio-comparison img').forEach(img => {
+            img.addEventListener('click', function() {
+                // Получаем все изображения из текущего блока сравнения
+                const comparisonBlock = this.closest('.portfolio-comparison');
+                currentImages = Array.from(comparisonBlock.querySelectorAll('img'));
+                currentIndex = currentImages.indexOf(this);
+                
+                // Открываем модальное окно
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                caption.textContent = this.alt;
+            });
+        });
+
+        // Переключение между изображениями
+        document.querySelector('.prev-btn').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
+        });
+        
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            updateModalImage();
+        });
+        
+        function updateModalImage() {
+            modalImg.src = currentImages[currentIndex].src;
+            caption.textContent = currentImages[currentIndex].alt;
+        }
+
+        // Закрытие модального окна
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Закрытие при клике вне изображения
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
+        // Закрытие по клавише Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
